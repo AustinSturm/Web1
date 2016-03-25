@@ -18,32 +18,22 @@
     $key = "pan";
     $out = "";
     for($i = 0; $i < strlen($input); $i++){
-      $out .= $input[$i] ^ $key[$i % strlen($key)];
+      $out .= $input[$i] ^ $key[$i % strlen($key)]; // Xor each character with char in key
     }
     return $out;
-  }
-
-  function xorTest($input, $key){
-    $output = '';
-    $in = $input;
-    for($i = 0; $i < strlen($in); $i++){
-      $output .= $in[$i] ^ $key[$i % strlen($key)];
-    }
-    return $output;
   }
 
 
   $flag = 'Capt_Crunch_Cookies';
   if($_GET['user'] == "Hook"){
-    setcookie("user", encrypt(base64_encode($flag)), time()+3600);
+    setcookie("user", base64_encode(encrypt($flag)), time()+3600);
     echo "Your flag is in this room Captain.";
+    echo encrypt(base64_decode($_GET['user']));
   }
   else{
     echo "Who arrrgh ya? To tha plank wit ya!";
   }
 
-  $answer = xorTest("Capt_Crunch_Cookies", "pan");
-  echo $answer;
 
  ?>
 </body>
