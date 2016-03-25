@@ -13,21 +13,26 @@
 <head><title></title></head>
 <body>
 <?php
+
   function encrypt($input){
-    return $input;
+    $key = "pan";
+    $out = "";
+    for($i = 0; $i < strlen($key); $i++){
+      $out .= $input[$i] ^ $key[$i % strlen($key)];
+    }
+    return $out;
   }
 
   $flag = 'CTF{Capt_Crunch_Cookies?}';
   if($_COOKIE['user'] == "Hook"){
-    setcookie("user", encrypt($flag), time()+3600);
+    setcookie("user", encrypt(base64_encode($flag)), time()+3600);
     echo "Your flag is in this room Captain.";
   }
   else{
-    echo "To tha plank wit ya!";
+    echo "Who arrrgh ya? To tha plank wit ya!";
   }
 
 
  ?>
- <p>This shows</p>
 </body>
 </html>
