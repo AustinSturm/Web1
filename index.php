@@ -24,7 +24,7 @@
   }
 
   $flag = 'CTF{Capt_Crunch_Cookies?}';
-  if($_COOKIE['user'] == "Hook"){
+  if($_GET['user'] == "Hook"){
     setcookie("user", encrypt(base64_encode($flag)), time()+3600);
     echo "Your flag is in this room Captain.";
   }
