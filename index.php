@@ -1,6 +1,7 @@
 <?php
+  setcookie('user', '', time()-300);
   if(!isset($_COOKIE['user'])){
-    setcookie("user", $_GET['user'], time()-3600);
+    setcookie("user", $_GET['user'], time()+3600);
   }
  ?>
 
