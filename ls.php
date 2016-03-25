@@ -5,15 +5,16 @@
 
 
     <form action ="" method="get">
-      <input type="text" name="cmd" id="cmd" value="Whatcha looking for?"/>
+      <p>What files do you need?</p>
+      <input type="text" name="cmd" id="cmd" />
+      <label>
       <input type="submit" name="submit" id="submit" value="Submit" />
       </label>
     </form>
 
     <?php
-      $query = "ls" + $_GET['cmd'];
-      $results = exec($query);
-      echo $results;
+      $query = 'ls ' + $_GET['cmd'];
+      echo exec($query);
      ?>
 </body>
 </html>
