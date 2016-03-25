@@ -13,8 +13,9 @@
     </form>
 
     <?php
-      $query = 'ls ' + $_GET['cmd'];
-      echo exec($query);
+      $query = 'ls ' . $_GET['cmd'] . ' 2>&1';
+      exec($query, $result);
+      echo $result;
      ?>
 </body>
 </html>
