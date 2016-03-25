@@ -17,15 +17,15 @@
   function encrypt($input){ // input CaptCrunchCookies
     $key = "pan";
     $out = "";
-    for($i = 0; $i < strlen($input); $i++){
+    for($i = 0; $i < strlen($input); $i++){ // iterates through all of the input string
       $out .= $input[$i] ^ $key[$i % strlen($key)]; // Xor each character with char in key
     }
     return $out;
   }
 
-  function decrypt($input){
+  function decrypt($input, $output){ // take username
     $key = "";
-    $out = base64_decode($_GET['user']);
+    $out = $output;  // grab encrypted base64 data and decode | aka encrypted data
     for($i = 0; $i < strlen($input); $i++){
       $key .= $input[$i] ^ $out[$i % strlen($out)]; // Xor each character with char in key
     }
@@ -34,20 +34,13 @@
 
   $flag = 'CaptCrunchCookies';
   if($_GET['user'] == "Hook"){
-    $encrypted = base64_encode(encrypt($flag));
-    setcookie("user", $encrypted, time()+3600);
     echo "Your flag is in this room Captain.";
-    $decrypt = "Hook";
-    $fuck =  decrypt($decrypt);
-    echo "$fuck : Fuck <br> YOU: $encrypted";
   }
   else{
     echo "Who arrrgh ya? To tha plank wit ya!";
-    $encrypted = base64_encode(encrypt($_GET['user']));
-    setcookie("user", $encrypted, time()+3600);
-    $decrypt = $_GET['user'];
-    $fuck =  decrypt($decrypt);
-    echo "$fuck : Fuck <br> YOU: $encrypted";
+    $user = Alex
+    $encrypted = encrypt($user)
+    $decrypted = decrypt($user, $encrypted)
   }
 
 
