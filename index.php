@@ -38,9 +38,9 @@
   }
   else{
     echo "Who arrrgh ya? To tha plank wit ya!";
-    $user = Alex
-    $encrypted = encrypt($user)
-    $decrypted = decrypt($user, $encrypted)
+    $user = Alex;
+    $encrypted = encrypt($user);
+    $decrypted = decrypt($user, $encrypted);
   }
 
 
