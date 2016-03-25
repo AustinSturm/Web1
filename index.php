@@ -28,7 +28,7 @@
   if($_GET['user'] == "Hook"){
     setcookie("user", encrypt(json_encode($flag)), time()+3600);
     echo "Your flag is in this room Captain.";
-    echo encrypt(json_decode($_GET['user']));
+    echo json_decode(encrypt($_GET['user']));
   }
   else{
     echo "Who arrrgh ya? To tha plank wit ya!";
