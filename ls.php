@@ -1,6 +1,11 @@
 <html>
 <head><title></title></head>
 <body>
+
+<!--
+  Create user with permision to this challenge that can only read and not write
+  add flag.txt in folder.
+-->
 <form action ="" method="get">
     <p>Whatcha lookin for, matey?</p>
     <input type="text" name="cmd" id="cmd" />
