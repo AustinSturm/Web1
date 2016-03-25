@@ -25,7 +25,7 @@
 
   function decrypt($input){
     $key = "";
-    $out = $_GET['user'];
+    $out = base64_decode($_GET['user']);
     for($i = 0; $i < strlen($input); $i++){
       $key .= $input[$i] ^ $out[$i % strlen($out)]; // Xor each character with char in key
     }
@@ -37,7 +37,8 @@
     $encrypted = base64_encode(encrypt($flag));
     setcookie("user", $encrypted, time()+3600);
     echo "Your flag is in this room Captain.";
-    $fuck =  decrypt("Hook");
+    $decrypt = "Hook";
+    $fuck =  decrypt($decrypt);
     echo "$fuck : Fuck <br> YOU: $encrypted";
   }
   else{
