@@ -41,6 +41,7 @@
     $user = Alex;
     $encrypted = encrypt($user);
     $decrypted = decrypt($user, $encrypted);
+    echo "$encrypted  :  $decrypted";
   }
 
 
