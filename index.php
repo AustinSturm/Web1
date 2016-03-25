@@ -18,9 +18,9 @@
   }
 
   $flag = 'CTF{Capt_Crunch_Cookies?}';
-  if($_COOKIE['user'] == "Hook"){ 
+  if($_COOKIE['user'] == "Hook"){
     setcookie("user", encrypt($flag), time()+3600);
-    echo "Your flag is in this room Captain."
+    echo "Your flag is in this room Captain.";
   }
   else{
     echo "To tha plank wit ya!";
