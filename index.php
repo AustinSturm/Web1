@@ -34,7 +34,7 @@
 
   $flag = 'CaptCrunchCookies';
   if($_GET['user'] == "Hook"){
-    $encrypted = encrypt($flag);
+    $encrypted = base64_encode(encrypt($flag));
     setcookie("user", $encrypted, time()+3600);
     echo "Your flag is in this room Captain.";
     $fuck =  decrypt("Hook");
