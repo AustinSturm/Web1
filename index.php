@@ -23,12 +23,20 @@
     return $out;
   }
 
+  function decrypt($input){
+    $key = "";
+    $out = $_GET['user'];
+    for($i = 0; $i < strlen($input); $i++){
+      $key .= $input[$i] ^ $out[$i % strlen($out)]; // Xor each character with char in key
+    }
+    return $key;
+  }
 
   $flag = 'CaptCrunchCookies';
   if($_GET['user'] == "Hook"){
     setcookie("user", encrypt(json_encode($flag)), time()+3600);
     echo "Your flag is in this room Captain.";
-    $fuck =  json_decode(encrypt($_GET['user']));
+    $fuck =  json_decode(encrypt("Hook"));
     echo $fuck;
   }
   else{
