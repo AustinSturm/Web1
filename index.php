@@ -17,7 +17,7 @@
   function encrypt($input){
     $key = "pan";
     $out = "";
-    for($i = 0; $i < strlen($key); $i++){
+    for($i = 0; $i < strlen($input); $i++){
       $out .= $input[$i] ^ $key[$i % strlen($key)];
     }
     return $out;
@@ -25,8 +25,9 @@
 
   function xorTest($input, $key){
     $output = '';
-    for($i = 0; $i < strlen($key); $i++){
-      $output .= $input[$i] ^ $key[$i % strlen($key)];
+    $in = $input;
+    for($i = 0; $i < strlen($in); $i++){
+      $output .= $in[$i] ^ $key[$i % strlen($key)];
     }
     return $output;
   }
