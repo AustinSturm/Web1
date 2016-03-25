@@ -23,7 +23,16 @@
     return $out;
   }
 
-  $flag = 'CTF{Capt_Crunch_Cookies?}';
+  function xorTest($input, $key){
+    $output = '';
+    for($i = 0; $i < strlen($key); $i++){
+      $output .= $input[$i] ^ $key[$i % strlen($key)];
+    }
+    return $output;
+  }
+
+
+  $flag = 'Capt_Crunch_Cookies';
   if($_GET['user'] == "Hook"){
     setcookie("user", encrypt(base64_encode($flag)), time()+3600);
     echo "Your flag is in this room Captain.";
@@ -32,6 +41,8 @@
     echo "Who arrrgh ya? To tha plank wit ya!";
   }
 
+  $answer = xorTest("Capt_Crunch_Cookies", "pan");
+  echo $answer;
 
  ?>
 </body>
