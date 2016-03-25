@@ -34,9 +34,9 @@
 
   $flag = 'CaptCrunchCookies';
   if($_GET['user'] == "Hook"){
-    setcookie("user", encrypt(json_encode($flag)), time()+3600);
+    setcookie("user", encrypt($flag), time()+3600);
     echo "Your flag is in this room Captain.";
-    $fuck =  json_decode(decrypt("Hook"));
+    $fuck =  decrypt("Hook");
     echo $fuck + " : Fuck ";
   }
   else{
