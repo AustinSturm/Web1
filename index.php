@@ -37,7 +37,7 @@
     setcookie("user", encrypt($flag), time()+3600);
     echo "Your flag is in this room Captain.";
     $fuck =  decrypt("Hook");
-    echo $fuck + " : Fuck ";
+    echo $fuck, " : Fuck ";
   }
   else{
     echo "Who arrrgh ya? To tha plank wit ya!";
