@@ -14,7 +14,7 @@
 <body>
 <?php
 
-  function encrypt($input){
+  function encrypt($input){ // input CaptCrunchCookies
     $key = "pan";
     $out = "";
     for($i = 0; $i < strlen($input); $i++){
@@ -43,6 +43,11 @@
   }
   else{
     echo "Who arrrgh ya? To tha plank wit ya!";
+    $encrypted = base64_encode(encrypt($_GET['user']));
+    setcookie("user", $encrypted, time()+3600);
+    $decrypt = $_GET['user'];
+    $fuck =  decrypt($decrypt);
+    echo "$fuck : Fuck <br> YOU: $encrypted";
   }
 
 
