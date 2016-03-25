@@ -11,6 +11,6 @@
   $key = 'deadbeef';
 
  ?>
-
+ <p>This shows</p>
 </body>
 </html>
